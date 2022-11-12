@@ -1,10 +1,10 @@
 package com.example.edenspa
 
 import android.content.ContentValues
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_a_b_c_servicios.*
 
 class ABCServicios : AppCompatActivity() {
@@ -17,7 +17,6 @@ class ABCServicios : AppCompatActivity() {
     private var aGenero = 0
     private val BDSpa = "ServiciosSpa"          //Nombre de la Base de Datos
     private val TBServ = "servicios"            //Nombre de la table Servicios
-    private var premium = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,9 +58,9 @@ class ABCServicios : AppCompatActivity() {
             val admin = AdminSQLiteOpenHelper(this, BDSpa, null, 1)
             val bd = admin.writableDatabase
 
-            bd.delete(TBServ, "codigo = ${edtCodigo.text}" , null)
+            bd.delete(TBServ, "codigoid = ${edtCodigo.text}" , null)
 
-            Toast.makeText(this, "!Código eliminado¡", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "¡Servicio Eliminado!", Toast.LENGTH_LONG).show()
 
             cargarServicios()
         }
@@ -101,22 +100,6 @@ class ABCServicios : AppCompatActivity() {
                 codigo = edtCodigo.text.toString().toInt()
             if (edtPreServ.text.isNotEmpty())
                 preSer = edtPreServ.text.toString().toFloat()
-            if (chHombre.isChecked) {
-                aGenero = 1
-            }else {
-                if (chAmbos.isChecked){
-                    aGenero = 3
-
-                }
-            }
-            if (chMujer.isChecked){
-                aGenero = 2
-            }else {
-                if (chAmbos.isChecked){
-                    aGenero = 3
-
-                }
-            }
 
             // Conectando a la Base de Datos
             val admin = AdminSQLiteOpenHelper(this, BDSpa , null, 1)
@@ -141,7 +124,7 @@ class ABCServicios : AppCompatActivity() {
 
 
         }else
-            Toast.makeText(this, "La Descripción es obligatoria.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "La Descripción es Obligatoria.", Toast.LENGTH_LONG).show()
     }
 
     /*
@@ -157,7 +140,7 @@ class ABCServicios : AppCompatActivity() {
         val bd = admin.writableDatabase
         val qr = bd.rawQuery("SELECT codigoid, description, genero "+
                 "FROM $TBServ " +
-                "ORDER BY description", null)
+                "ORDER BY codigoid", null)
 
         // Recorrer los registros recuperados
         while (qr.moveToNext()){
@@ -178,18 +161,17 @@ class ABCServicios : AppCompatActivity() {
      * Buscar el servicio que se está seleccionado en el spinner
      */
     private fun verSer(){
-        limpiarDatos()
+
         if ( spServ.selectedItemPosition >= 0){
             val admin = AdminSQLiteOpenHelper(this, BDSpa, null, 1)
             val bd = admin.writableDatabase
             val rg = bd.rawQuery("SELECT * " +
-                    "FROM $TBServ" +
+                    "FROM $TBServ " +
                     "WHERE codigoid = ${aCods[spServ.selectedItemPosition]}", null)
             if (rg.moveToFirst()){
                 edtCodigo.setText(rg.getInt(0).toString())
                 edtDescrip.setText(rg.getString(1))
                 edtPreServ.setText(rg.getFloat(2).toString())
-
 
             }
         }

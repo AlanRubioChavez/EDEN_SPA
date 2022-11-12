@@ -1,17 +1,24 @@
 package com.example.edenspa
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_a_b_c_servicios.*
+import android.view.View
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_config_serv_premium.*
 
 class ConfigServPremium : AppCompatActivity() {
 
-    private var archivoXML = ""
-    private var premium = 0f
+    var edtComPremium:EditText?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config_serv_premium)
+
+        edtComPremium=findViewById(R.id.edtComPremium)
+        var pref=getSharedPreferences("premier",Context.MODE_PRIVATE)
+        var comision=pref.getString("comision", "")
+        edtComPremium?.setText(comision)
 
         iniciar1()
     }
@@ -19,19 +26,16 @@ class ConfigServPremium : AppCompatActivity() {
     /*
      *Configuración inicial
      */
+    fun guardar(view: View){
+        var pref=getSharedPreferences("premier",Context.MODE_PRIVATE)
+        var editor=pref.edit()
+        editor.putString("comision", edtComPremium?.text.toString().toFloat().toString())
+        editor.commit()
+        Toast.makeText(this,"¡Se ha guardado exitosamente!", Toast.LENGTH_LONG).show()
+    }
+
     private fun iniciar1(){
-        title = "Configuración Servicio Premium"
-        //Recuperar el nombre del archivo .xml
-        if (edtComPremium.text.isNotEmpty()){
-            premium = edtComPremium.text.toString().toFloat()
-        }
-        val bundle : Bundle? = intent.extras
-
-        if (bundle != null){
-            archivoXML = bundle.getString("configPremium", "")
-        }
-
-        // Implemantar evento click de botones
+        title = "Configuración Servicio Premier"
         btnRegresar.setOnClickListener { finish() }
     }
 
