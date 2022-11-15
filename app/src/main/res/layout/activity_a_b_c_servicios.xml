@@ -80,10 +80,9 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
+        android:layout_width="111dp"
+        android:layout_height="20dp"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
         android:text="Lista de Servicios"
         app:layout_constraintStart_toStartOf="parent"

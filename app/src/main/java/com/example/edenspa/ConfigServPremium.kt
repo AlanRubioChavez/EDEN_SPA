@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_config_serv_premium.*
 
 class ConfigServPremium : AppCompatActivity() {
 
+    private var archivoXML = ""
     var edtComPremium:EditText?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,18 @@ class ConfigServPremium : AppCompatActivity() {
     }
 
     private fun iniciar1(){
-        title = "Configuración Servicio Premier"
+        title = "Configuración Comisión Premier"
+
+        //Recuperar el nombre del archivo .xml
+
+        val bundle : Bundle? = intent.extras
+
+        if (bundle != null){
+            archivoXML = bundle.getString("configPremium", "")
+        }
+
+        // Implemantar evento Click de botones...
+
         btnRegresar.setOnClickListener { finish() }
     }
 

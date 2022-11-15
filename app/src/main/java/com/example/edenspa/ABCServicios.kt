@@ -28,7 +28,7 @@ class ABCServicios : AppCompatActivity() {
      *Configuración inicial
      */
     private fun iniciar(){
-
+        title = "Configuración Servicios"
 
         //Recuperar el nombre del archivo .xml
         val bundle : Bundle? = intent.extras

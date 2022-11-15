@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".FacturacionClientes">
 
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="225dp"
@@ -26,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="15dp"
         android:text="Genero"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="110dp"
         app:layout_constraintEnd_toEndOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -106,7 +107,7 @@
         android:layout_height="24dp"
         android:layout_marginTop="24dp"
         android:text="Servicios por pagar"
-        app:layout_constraintEnd_toEndOf="@+id/spnServi"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/spnServi"
         app:layout_constraintTop_toBottomOf="@+id/spnServi" />
@@ -142,5 +143,30 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnRegres"
         app:layout_constraintTop_toTopOf="@+id/btnRegres" />
+
+    <ImageView
+        android:id="@+id/btnAgregar2"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spnServi"
+        app:layout_constraintStart_toEndOf="@+id/spnServi"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:srcCompat="@mipmap/agregar" />
+
+    <ImageView
+        android:id="@+id/btnBorrar2"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAgregar2"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintStart_toEndOf="@+id/btnAgregar2"
+        app:layout_constraintTop_toTopOf="@+id/btnAgregar2"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/borrar"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
