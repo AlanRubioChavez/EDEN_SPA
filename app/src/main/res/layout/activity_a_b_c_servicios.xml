@@ -11,8 +11,7 @@
         android:layout_width="137dp"
         android:layout_height="22dp"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="Código de Servicio"
         app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +21,7 @@
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="25dp"
         android:text="Precio del Servicio"
         app:layout_constraintEnd_toEndOf="@+id/edtCodigo"
         app:layout_constraintHorizontal_bias="0.0"
@@ -35,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:gravity="start|top"
+        android:gravity="center"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.0"
@@ -48,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/edtDescrip"
         app:layout_constraintHorizontal_bias="0.0"
@@ -66,12 +66,13 @@
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
-    <EditText
+    <TextView
         android:id="@+id/edtCodigo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -102,37 +103,25 @@
     <ImageButton
         android:id="@+id/btnAgregar"
         android:layout_width="0dp"
-        android:layout_height="57dp"
+        android:layout_height="64dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+        app:layout_constraintEnd_toStartOf="@+id/btnSave"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPreServ"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
     <ImageButton
-        android:id="@+id/btnEdit"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAgregar"
-        app:layout_constraintEnd_toStartOf="@+id/btnSave"
-        app:layout_constraintStart_toEndOf="@+id/btnAgregar"
-        app:layout_constraintTop_toTopOf="@+id/btnAgregar"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
-    <ImageButton
         android:id="@+id/btnSave"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="64dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAgregar"
         app:layout_constraintEnd_toStartOf="@+id/btnBorrar"
-        app:layout_constraintStart_toEndOf="@+id/btnEdit"
-        app:layout_constraintTop_toTopOf="@+id/btnEdit"
+        app:layout_constraintStart_toEndOf="@+id/btnAgregar"
+        app:layout_constraintTop_toTopOf="@+id/btnAgregar"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_save" />
 
     <ImageButton
@@ -156,7 +145,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btnBorrar"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/btnAgregar"
-        app:layout_constraintTop_toBottomOf="@+id/btnEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
 
     <ImageView
         android:id="@+id/btnVer"

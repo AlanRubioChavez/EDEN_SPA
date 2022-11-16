@@ -43,7 +43,6 @@ class ABCServicios : AppCompatActivity() {
         btnRegresa.setOnClickListener { finish() }
         btnSave.setOnClickListener { guardarServ()}
         btnVer.setOnClickListener { verSer() }
-        btnEdit.setOnClickListener { editSer() }
         btnBorrar.setOnClickListener { borrarServ() }
 
         cargarServicios()
@@ -64,13 +63,6 @@ class ABCServicios : AppCompatActivity() {
 
             cargarServicios()
         }
-    }
-
-    /*
-     *Preparar para modificar el articulo desplegado
-     */
-    private fun editSer(){
-
     }
 
     private fun limpiarDatos(){
@@ -113,9 +105,11 @@ class ABCServicios : AppCompatActivity() {
 
             if (codigo == 0){                      // Artículo Nuevo
                 bd.insert(TBServ, null, rg)
+                Toast.makeText(this, "¡Servicio Agregado con Exito!", Toast.LENGTH_LONG).show()
             }
             else {
                 bd.update(TBServ, rg, "codigoid = $codigo", null)
+                Toast.makeText(this, "¡Servicio Actualizado con Exito!", Toast.LENGTH_LONG).show()
             }
 
             bd.close()
@@ -124,7 +118,7 @@ class ABCServicios : AppCompatActivity() {
 
 
         }else
-            Toast.makeText(this, "La Descripción es Obligatoria.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "La Descripción es Obligatoria", Toast.LENGTH_LONG).show()
     }
 
     /*
